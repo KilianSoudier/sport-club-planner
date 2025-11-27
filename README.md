@@ -61,11 +61,22 @@ Depuis la racine :
 docker-compose up --build
 ```
 
-Services exposés :
+If you run the app with Docker Compose in development, files are mounted into the containers so changes on your host are reflected instantly.
 
-- Frontend : `http://localhost:3000`
-- Backend Laravel : `http://localhost:8000`
-- MySQL : `localhost:3306` (user : `sportuser`, pass : `sportpass`)
+Notes for Docker Compose development:
+
+- The frontend is configured to talk to the backend at the container hostname `backend:8000` (the compose service name). When accessing the frontend from your host browser, the frontend will proxy API calls to `http://backend:8000/api` inside the Docker network.
+- On Windows, file watch events can be unreliable. The frontend service enables polling via the `CHOKIDAR_USEPOLLING=true` environment variable to make Vite reliably detect changes.
+
+To start development with Docker Compose:
+
+```powershell
+docker compose up --build
+```
+
+Then open http://localhost:3000 in your browser.
+
+Services exposés :
 
 ## 5. Feuilles de route Laravel
 

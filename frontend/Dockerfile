@@ -3,9 +3,11 @@ FROM node:20
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install
+# Install dependencies without optional native packages to avoid platform-specific optional dependency errors
+RUN npm ci --silent --no-optional
 
-COPY . .
+# In dev we mount the full project into /app; the build can rely on that.
+# Copy only package files so the initial install is available in the image.
 
 EXPOSE 3000
 

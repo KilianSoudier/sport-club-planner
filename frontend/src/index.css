@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply m-0 min-h-screen bg-slate-950 text-slate-100;
+  font-family: theme('fontFamily.sans');
+}
+
+.sport-gradient-bg {
+  background: radial-gradient(circle at top left, rgba(56,189,248,0.25), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(34,197,94,0.25), transparent 55%),
+              #020617;
+}
+
+.card {
+  @apply bg-slate-900/70 border border-slate-800 rounded-2xl p-6 shadow-sport backdrop-blur;
+}
+
+.input {
+  @apply w-full rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:border-sport-500 focus:outline-none focus:ring-2 focus:ring-sport-500/50;
+}
+
+.label {
+  @apply block text-sm font-medium text-slate-200 mb-1;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-xl bg-sport-600 px-4 py-2 text-sm font-semibold text-white shadow-sport transition hover:bg-sport-500 focus:outline-none focus:ring-2 focus:ring-sport-500/70;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center rounded-xl border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-100 hover:bg-slate-800/80;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-200;
+}
